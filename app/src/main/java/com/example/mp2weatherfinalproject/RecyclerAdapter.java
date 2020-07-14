@@ -85,5 +85,78 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         }
         return dayFromDate;
     }
+    @Override
+    public int getItemCount() {
+        return 1;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder
+    {
+        ImageView i_main,i_day1,i_day2,i_day3,i_day4,i_day5;
+        TextView t_cityName,t_State,t_curTemp,t_minTemp,t_maxTemp,t_day1,t_day2,t_day3,t_day4,t_day5,
+                t_state1,t_state2,t_state3,t_state4,t_state5,t_predict,t_humid;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            i_main = itemView.findViewById(R.id.i_main);
+            t_cityName=itemView.findViewById(R.id.city_name);
+            t_curTemp = itemView.findViewById(R.id.t_curTemp);
+            t_minTemp = itemView.findViewById(R.id.txt_minTemp);
+            t_maxTemp = itemView.findViewById(R.id.txt_maxTemp);
+            i_day1 = itemView.findViewById(R.id.i_day1);
+            i_day2 = itemView.findViewById(R.id.i_day2);
+            i_day3 = itemView.findViewById(R.id.i_day3);
+            i_day4 = itemView.findViewById(R.id.i_day4);
+            i_day5 = itemView.findViewById(R.id.i_day5);
+            t_day1 = itemView.findViewById(R.id.t_day1);
+            t_day2 = itemView.findViewById(R.id.t_day2);
+            t_day3 = itemView.findViewById(R.id.t_day3);
+            t_day4 = itemView.findViewById(R.id.t_day4);
+            t_day5 = itemView.findViewById(R.id.t_day5);
+            t_State = itemView.findViewById(R.id.t_State);
+            t_state1 = itemView.findViewById(R.id.t_state1);
+            t_state2 = itemView.findViewById(R.id.t_state2);
+            t_state3 = itemView.findViewById(R.id.t_state3);
+            t_state4 = itemView.findViewById(R.id.t_state4);
+            t_state5 = itemView.findViewById(R.id.t_state5);
+            t_humid = itemView.findViewById(R.id.t_humid);
+            t_predict = itemView.findViewById(R.id.t_predict);
+
+            i_day1.setOnClickListener(click);
+            i_day2.setOnClickListener(click);
+            i_day3.setOnClickListener(click);
+            i_day4.setOnClickListener(click);
+            i_day5.setOnClickListener(click);
+            itemView.setTag(this);
+        }
+    }
+    View.OnClickListener click =new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(v.getContext(),RecycleItem.class);
+            switch (v.getId()){
+                case R.id.i_day1:
+                    intent.putExtra("Day",arrayListPokemon.get(1));
+                    v.getContext().startActivity(intent);
+                    break;
+                case R.id.i_day2:
+                    intent.putExtra("Day",arrayListPokemon.get(2));
+                    v.getContext().startActivity(intent);
+                    break;
+                case R.id.i_day3:
+                    intent.putExtra("Day",arrayListPokemon.get(3));
+                    v.getContext().startActivity(intent);
+                    break;
+                case R.id.i_day4:
+                    intent.putExtra("Day",arrayListPokemon.get(4));
+                    v.getContext().startActivity(intent);
+                    break;
+                case R.id.i_day5:
+                    intent.putExtra("Day",arrayListPokemon.get(5));
+                    v.getContext().startActivity(intent);
+                    break;
+            }
+        }
+    };
 
 }
