@@ -17,7 +17,7 @@ import java.util.Date;
 public class RecycleItem extends AppCompatActivity {
     String url="https://www.metaweather.com/static/img/weather/png/";
     ImageView i_main;
-    TextView lbl_cur,t_State,t_curTemp,t_minTemp,t_maxTemp,t_predict,t_humid;
+    TextView t_State,t_curTemp,t_minTemp,t_maxTemp,t_predict,t_humid,t_day;
     ConsolidatedWeather_ consolidatedWeather;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +25,12 @@ public class RecycleItem extends AppCompatActivity {
         setContentView(R.layout.recycleitem);
         t_State=findViewById(R.id.t_State);
         i_main = findViewById(R.id.i_main);
-        lbl_cur=findViewById(R.id.lbl_cur);
         t_curTemp=findViewById(R.id.t_curTemp);
         t_minTemp=findViewById(R.id.txt_minTemp);
         t_maxTemp=findViewById(R.id.txt_maxTemp);
         t_predict=findViewById(R.id.t_predict);
         t_humid=findViewById(R.id.t_humid);
+        t_day=findViewById(R.id.txt_day);
         consolidatedWeather= getIntent().getParcelableExtra("Day");
         generateview();
     }
@@ -41,7 +41,7 @@ public class RecycleItem extends AppCompatActivity {
         t_curTemp.setText(""+(double)Math.round(consolidatedWeather.getTheTemp() * 100d / 100d)+"°");
         t_minTemp.setText(""+(double)Math.round(consolidatedWeather.getMinTemp() * 100d / 100d)+"°");
         t_maxTemp.setText(""+(double)Math.round(consolidatedWeather.getMaxTemp() * 100d / 100d)+"°");
-        lbl_cur.setText(""+getDay(consolidatedWeather.getApplicableDate()));
+        t_day.setText(""+getDay(consolidatedWeather.getApplicableDate()));
         t_humid.setText("Humidity: "+(double)Math.round(consolidatedWeather.getHumidity() * 100d) / 100d+"%");
         t_predict.setText("Predictability: "+(double)Math.round(consolidatedWeather.getPredictability() * 100d) / 100d+"%");
     }

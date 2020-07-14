@@ -24,8 +24,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private ArrayList<ConsolidatedWeather_> arrayListPokemon;
     private Context context;
     String title;
-    String url="https://www.metaweather.com/static/img/weather/png/";
-    String u2=".png";
+    String u1="https://www.metaweather.com/static/img/weather/png/";
+
 
     public RecyclerAdapter(ArrayList<ConsolidatedWeather_> arrayListPokemon, Context context, String title) {
         this.arrayListPokemon = arrayListPokemon;
@@ -46,12 +46,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Glide.with(context).load(url+arrayListPokemon.get(position).getWeatherStateAbbr()+u2).into(holder.i_main);
-        Glide.with(context).load(url+arrayListPokemon.get(1).getWeatherStateAbbr()+u2).into(holder.i_day1);
-        Glide.with(context).load(url+arrayListPokemon.get(2).getWeatherStateAbbr()+u2).into(holder.i_day2);
-        Glide.with(context).load(url+arrayListPokemon.get(3).getWeatherStateAbbr()+u2).into(holder.i_day3);
-        Glide.with(context).load(url+arrayListPokemon.get(4).getWeatherStateAbbr()+u2).into(holder.i_day4);
-        Glide.with(context).load(url+arrayListPokemon.get(5).getWeatherStateAbbr()+u2).into(holder.i_day5);
+        Glide.with(context).load(u1+arrayListPokemon.get(position).getWeatherStateAbbr()+".png").into(holder.i_main);
+        Glide.with(context).load(u1+arrayListPokemon.get(1).getWeatherStateAbbr()+".png").into(holder.i_day1);
+        Glide.with(context).load(u1+arrayListPokemon.get(2).getWeatherStateAbbr()+".png").into(holder.i_day2);
+        Glide.with(context).load(u1+arrayListPokemon.get(3).getWeatherStateAbbr()+".png").into(holder.i_day3);
+        Glide.with(context).load(u1+arrayListPokemon.get(4).getWeatherStateAbbr()+".png").into(holder.i_day4);
+        Glide.with(context).load(u1+arrayListPokemon.get(5).getWeatherStateAbbr()+".png").into(holder.i_day5);
         holder.t_cityName.setText(title);
         holder.t_curTemp.setText(""+(double)Math.round(arrayListPokemon.get(position).getTheTemp() * 100d) / 100d+"°");
         holder.t_minTemp.setText(""+(double)Math.round(arrayListPokemon.get(position).getMinTemp() * 100d) / 100d+"°");
