@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/montreal"
+            android:title="Montreal" />
+        <item android:id="@+id/london"
+            android:title="London"/>
+        <item android:id="@+id/hyderabad"
+            android:title="Hyderabad"/>
+        <item android:id="@+id/newYork"
+            android:title="New York"/>
+        <item android:id="@+id/chicago"
+            android:title="Chicago"/>
+        <item android:id="@+id/delhi"
+            android:title="New Delhi"/>
+    </group>
 </menu>
