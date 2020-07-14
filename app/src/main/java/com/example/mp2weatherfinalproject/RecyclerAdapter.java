@@ -70,7 +70,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.t_state3.setText(arrayListPokemon.get(3).getWeatherStateName());
         holder.t_state4.setText(arrayListPokemon.get(4).getWeatherStateName());
         holder.t_state5.setText(arrayListPokemon.get(5).getWeatherStateName());
-
+    }
+    public static String getDay(String d){
+        String i=d;
+        SimpleDateFormat dateformat=new SimpleDateFormat("yyyy-MM-dd");
+        Date date;
+        String dayFromDate = null;
+        try {
+            date = dateformat.parse(i);
+            DateFormat dayFormate=new SimpleDateFormat("EEE");
+            dayFromDate=dayFormate.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return dayFromDate;
     }
 
 }
